@@ -7,6 +7,8 @@
 </head>
 <body>
   <h1>MongoDB Data</h1>
+  <input type="text" id="searchInput" placeholder="Search by keyword">
+  <button onclick="searchData()">Search</button>
   <form id="dataForm">
     <label for="home">Home Team:</label>
     <input type="text" id="home" name="home" required>
@@ -60,7 +62,34 @@
         dataBody.appendChild(row);
       });
     }
-  
+    async function searchData() {
+    const searchInput = document.getElementById('searchInput').value;
+    const response = await fetch(`/searchData?keyword=${searchInput}`);
+    const data = await response.json();
+
+    const dataBody = document.getElementById('dataBody');
+
+    while (dataBody.firstChild) {
+      dataBody.removeChild(dataBody.firstChild);
+    }
+
+    data.forEach(item => {
+      const row = document.createElement('tr');
+      const cell1 = document.createElement('td');
+      const cell2 = document.createElement('td');
+      const cell3 = document.createElement('td');
+
+      cell1.textContent = item.home;
+      cell2.textContent = item.away;
+      cell3.textContent = item.price;
+
+      row.appendChild(cell1);
+      row.appendChild(cell2);
+      row.appendChild(cell3);
+
+      dataBody.appendChild(row);
+    });
+  }
     async function postData(data) {
       await fetch('/addData', {
         method: 'POST',

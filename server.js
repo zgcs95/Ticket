@@ -30,7 +30,7 @@ app.get('/getData', async (req, res) => {
     }
   });
   
-  app.post('/addData', async (req, res) => {
+app.post('/addData', async (req, res) => {
     try {
       const newData = req.body;
       await Ticket.create(newData);
@@ -39,6 +39,23 @@ app.get('/getData', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
+
+// New route for searching data
+app.get('/searchData', async (req, res) => {
+  const keyword = req.query.keyword;
+
+  try {
+    const data = await Ticket.find({
+      $or: [
+        { home: { $regex: keyword, $options: 'i' } },
+        { away: { $regex: keyword, $options: 'i' } },
+      ],
+    });
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
