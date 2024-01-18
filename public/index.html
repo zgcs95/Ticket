@@ -10,6 +10,18 @@
   <h1>Premier League Second Hand Ticket</h1>
   <input type="text" id="searchInput" placeholder="Search by Team">
   <button onclick="searchData()">Search</button>
+
+  <table id="dataTable" border="1">
+    <thead>
+      <tr>
+        <th>Home</th>
+        <th>Away</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
+
   <form id="dataForm">
     <label for="home">Home Team:</label>
     <input type="text" id="home" name="home" required>
@@ -22,17 +34,6 @@
 
     <button type="submit">Add Ticket</button>
   </form>
-
-  <table id="dataTable" border="1">
-    <thead>
-      <tr>
-        <th>Home</th>
-        <th>Away</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody id="dataBody"></tbody>
-  </table>
 
   <script>
     async function fetchData() {
