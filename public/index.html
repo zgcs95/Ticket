@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Table with JSON Data</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Premier League Second Hand Ticket</title>
 </head>
 <body>
-  <h1>MongoDB Data</h1>
-  <input type="text" id="searchInput" placeholder="Search by keyword">
+  <h1>Premier League Second Hand Ticket</h1>
+  <input type="text" id="searchInput" placeholder="Search by Team">
   <button onclick="searchData()">Search</button>
   <form id="dataForm">
     <label for="home">Home Team:</label>
@@ -19,7 +20,7 @@
     <label for="price">Price:</label>
     <input type="number" id="price" name="price" required>
 
-    <button type="submit">Add Data</button>
+    <button type="submit">Add Ticket</button>
   </form>
 
   <table id="dataTable" border="1">
