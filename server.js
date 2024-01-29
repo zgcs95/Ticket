@@ -4,17 +4,6 @@ const mongoose = require('mongoose');
 const Ticket = require('./models/Ticket')
 mongoose.connect('mongodb://localhost/my_database');
 const bodyParser = require('body-parser');
-// Ticket.create({
-//   home: 'Man Utd',
-//   away: 'Man City' ,
-//   price: 250
-// })
-// .then(result => {
-//   console.log(result);
-// })
-// .catch(err => {
-//   console.error(err);
-// });
 
 
 app.use(express.static('public'));
