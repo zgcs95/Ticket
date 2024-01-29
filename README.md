@@ -18,7 +18,7 @@ This application is a website allowing user to post and search for second Premie
 
 ## Installation
 
-To get started with Awesome Web App, follow these simple steps:
+To get started with the website, follow these simple steps:
 
 1. Clone the repository:
 
